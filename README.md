@@ -1,6 +1,6 @@
 # sei-project-1
-Pac-Man Repo
-
+Pac-Man Eleven World
+See the project online at https://gaebar.github.io/sei-project-1/
 
 # Inspiration Material
 These articles describe how the ghosts in the original pac-man behave:
