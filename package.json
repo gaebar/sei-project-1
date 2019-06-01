@@ -1,0 +1,26 @@
+{
+  "name": "sei-project-1",
+  "version": "1.0.0",
+  "description": "Pac-man (Eleven Version)",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gaebar/sei-project-1.git"
+  },
+  "author": "Gaetano Barreca",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gaebar/sei-project-1/issues"
+  },
+  "homepage": "https://gaebar.github.io/sei-project-1/",
+  "dependencies": {
+    "eslint": "^5.16.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.1",
+    "eslint-plugin-react": "^7.13.0"
+  }
+}

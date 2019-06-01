@@ -1,18 +1,25 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Pac-Man [11 mode]</title>
 
-    <link rel="shortcut icon" href="images/Favicon.x-icon"/>
+<head>
+  <meta charset="utf-8">
+  <title>Pac-Man [Eleven mode]</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="images/favicon.ico" />
+  <link rel="stylesheet" href="styles/style.css">
+</head>
 
-    <script src="scripts/app.js" charset="utf-8"></script>
-    <link rel="stylesheet" href="styles/style.css">
-  </head>
-  <body>
+<body>
   <div class="grid">
-    <!-- <div class="walls"> -->
-    <!-- </div> -->
   </div>
-  </body>
+
+  <!--
+    Using type=module so I can use imports in the javascript files
+    This is a new javascript function. It also helps when working with
+    ESLINT, to avoid unused variable warning.  
+  -->
+  <script type="module" src="scripts/game/board.js"></script>
+  <script type="module" src="scripts/app.js"></script>
+</body>
+
 </html>

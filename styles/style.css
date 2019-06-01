@@ -7,13 +7,13 @@ html, body {
   padding: 0;
   height: 100vh;
   /* background-image: url("images/Stranger-Things-2-review.jpg"); */
-  background: no-repeat center/100% url("https://images3.alphacoders.com/882/882548.jpg");
-  background-size: cover; /* background-position: center; */
+   background: no-repeat center/100% url("../images/background.jpg");
+   background-size: cover; /* background-position: center; */
 
 }
 
 body {
-  display: flex;
+   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
