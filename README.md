@@ -2,7 +2,7 @@
 Pac-Man Repo
 
 
-Game Mechanics
+# Game Mechanics
 Most of the code is for the ghost AI. These article describe how the ghosts should behave from the game-player's perspective:
 
 http://gameinternals.com/post/2072558330/understanding-pac-man-ghost-behavior
