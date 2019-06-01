@@ -1,3 +1,52 @@
-body {
-  background-color: papayawhip;
+* {
+  box-sizing: border-box;
 }
+
+html, body {
+  margin: 0px auto;
+  padding: 0;
+  height: 100vh;
+  /* background-image: url("images/Stranger-Things-2-review.jpg"); */
+  background: no-repeat center/100% url("https://images3.alphacoders.com/882/882548.jpg");
+  background-size: cover; /* background-position: center; */
+
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+div.grid {
+  width: 500px;
+  height: 500px;
+  display: flex;
+  flex-wrap: wrap;
+  color: yellow;
+}
+
+div.grid-item {
+  width: 50px;
+  height: 50px;
+  border: 1px solid white;
+
+}
+
+div.grid-item.player {
+  background-image: url('https://vignette.wikia.nocookie.net/strangerthings8338/images/a/a7/STGame-Eleven.png/revision/latest?cb=20171007215654');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+div.grid-item.monster {
+  background-image: url('https://i.imgur.com/JQgJjgQ.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+/* try to add walls */
+/* .walls {
+  background-color: blue;
+} */
