@@ -1,0 +1,48 @@
+div#game-board {
+    background-color: black;
+}
+
+span.tile {
+    display: table-cell;
+    height: 20px;
+    width: 20px;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    cursor: default;
+    padding: 0px;
+}
+
+span.tile.cell-wall {
+    border: 2px solid green;
+}
+
+span.tile.cell-eggos {
+    background-image: url(../images/eggo.png);
+    background-size: 70%;
+    background-repeat: no-repeat;
+    background-position: 3.2px 2.1px;
+}
+
+
+span.tile.cell-eleven {
+    background-image: url(../images/eleven.png);
+    background-size: 70%;
+    background-repeat: no-repeat;
+    background-position: 3.2px 2.1px;
+}
+
+span.tile.cell-demogorgon {
+    background-image: url(../images/demogorgon.png);
+    background-size: 70%;
+    background-repeat: no-repeat;
+    background-position: 3.2px 2.1px;
+}
+/**
+    Created the dot using the before pseudo element
+    https://stackoverflow.com/questions/6936972/draw-circle-using-css-alone
+**/
+span.tile.cell-food:before, span.tile.cell-target:before {
+    content: '\25CF';
+    font-size: 10px;
+  }

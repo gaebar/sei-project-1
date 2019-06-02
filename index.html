@@ -6,6 +6,7 @@
   <title>Pac-Man [Eleven mode]</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="images/favicon.ico" />
+  <link href="https://fonts.googleapis.com/css?family=VT323&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles/main.css">
   <!--
     Using type=module so I can use imports in the javascript files
@@ -16,15 +17,22 @@
 </head>
 
 <body>
-  <div id="top-bar">
-    <div id="current-level"></div>
-    <span id="github-icon"></span>
-  </div>
-  <div id="game-board"></div>
-  <div id="bottom-bar">
-    <div id="scoreboard">Score: <span>0</span></div>
-    <div id="lives"><span></span><span></span><span></span></div>
-  </div>
+  <section class="main-container">
+    <div id="top-bar">
+      <div id="current-level">Level 1</div>
+      <span id="github-icon"></span>
+    </div>
+    <div id="game-board"></div>
+    <div id="bottom-bar">
+      <div id="scoreboard">Score: <span>0</span></div>
+      <div id="lives">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+    </div>
+  </section>
 </body>
 
 </html>
