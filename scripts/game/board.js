@@ -19,6 +19,8 @@ export default class Board {
     this.populateBoardDom()
   }
 
+
+
   createBoard() {
     let countDemogorgons = 0
     const board = []
@@ -49,6 +51,7 @@ export default class Board {
     return board
   }
 
+  // Move Eleven: removes the class from old Eleven position and assign a new one
   updateBoard(keyCode) {
     const oldElevenElement = this.boardTilesElements[this.eleven.position[0]][this.eleven.position[1]]
     oldElevenElement.classList.remove('cell-eleven')
@@ -60,6 +63,7 @@ export default class Board {
     this.moveDemogorgons()
   }
 
+  // Starting from the level map, create DOM elements and assign classes to display the map
   populateBoardDom() {
     const boardElement = document.getElementById('game-board')
     boardElement.innerHTML = ''
@@ -86,17 +90,17 @@ export default class Board {
   }
 
   updateElevenDisplay() {
-    this.tiles.forEach(square => square.classList.remove('player'))
-    squares[playerIndex].classList.add('player')
+    // this.tiles.forEach(square => square.classList.remove('player'))
+    // squares[playerIndex].classList.add('player')
   }
 
   moveDemogorgons() {
 
   }
 
-  moveEleven() {
 
-  }
+
+  // move Eleven according to keyboard commands
 
   getNextCharacterAcceptablePosition(currentPosition, direction) {
     switch (direction) {
@@ -119,7 +123,7 @@ export default class Board {
     }
   }
 
-
+  // correspondence between map codes and DOM classes 
   tileTypes = {
     'wall': '■',
     'food': '·',
@@ -131,10 +135,13 @@ export default class Board {
     'empty': ' '
   }
 
+  // different states for the board
   boardStatesTypes = {
     'standard': 'standard',
     'eggosMode': 'eggosMode'
   }
+
+  // map between keyboards, keycodes and directions
 
   directions = {
     up: 38,
