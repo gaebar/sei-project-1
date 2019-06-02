@@ -1,0 +1,14 @@
+
+div.grid-item.player {
+    background-image: url('https://vignette.wikia.nocookie.net/strangerthings8338/images/a/a7/STGame-Eleven.png/revision/latest?cb=20171007215654');
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+  
+  div.grid-item.monster {
+    background-image: url('https://i.imgur.com/JQgJjgQ.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+  
+  

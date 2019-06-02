@@ -54,15 +54,17 @@ export default class Board {
       rowElement.className = 'board-row'
       boardElement.appendChild(rowElement)
 
-      row.forEach(() => {
-        const tileElement = document.createElement('div')
+      row.forEach((currentTile, tileIndex, currentRow) => { //element, elementIndex, array
+        const tileElement = document.createElement('span')
         tileElement.className = 'tile'
+
+        const cellClass = Object.keys(this.tileTypes).find(key => this.tileTypes[key] === currentTile.tileTypeChar)
+        tileElement.classList.add('cell-' + cellClass)
+
         rowElement.appendChild(tileElement)
       })
     })
   }
-
-
 
   tileTypes = {
     'wall': '■',
@@ -71,6 +73,7 @@ export default class Board {
     'upside': 'U',
     'eleven': 'E',
     'demogorgon': 'D',
-    'target': 'T'
+    'target': 'T',
+    'empty': ' '
   }
 }

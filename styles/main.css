@@ -1,0 +1,25 @@
+@import "board.css";
+@import "characters.css";
+@import "scoreboard.css";
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0px auto;
+  padding: 0;
+  height: 100vh;
+  /* background-image: url("images/Stranger-Things-2-review.jpg"); */
+   background: no-repeat center/100% url("../images/background.jpg");
+   background-size: cover; /* background-position: center; */
+
+}
+
+body {
+   display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
