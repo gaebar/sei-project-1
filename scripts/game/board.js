@@ -11,7 +11,12 @@ export default class Board {
     this.demogorgons = []
     this.currentBoard = this.createBoard()
 
-    this.displayBoard()
+    this.maxColumn = this.currentLevel[0].length - 1
+    this.maxRow = this.currentLevel.length - 1
+
+    this.boardTilesElements = []
+
+    this.populateBoardDom()
   }
 
   createBoard() {
@@ -44,17 +49,28 @@ export default class Board {
     return board
   }
 
-  displayBoard() {
+  updateBoard(keyCode) {
+    const oldElevenElement = this.boardTilesElements[this.eleven.position[0]][this.eleven.position[1]]
+    oldElevenElement.classList.remove('cell-eleven')
+
+    this.eleven.position = this.getNextCharacterAcceptablePosition(this.eleven.position, keyCode)
+    const currentElevenElement = this.boardTilesElements[this.eleven.position[0]][this.eleven.position[1]]
+    currentElevenElement.classList.add('cell-eleven')
+
+    this.moveDemogorgons()
+  }
+
+  populateBoardDom() {
     const boardElement = document.getElementById('game-board')
     boardElement.innerHTML = ''
-
 
     this.currentBoard.forEach((row) => {
       const rowElement = document.createElement('div')
       rowElement.className = 'board-row'
       boardElement.appendChild(rowElement)
+      const tileRowElements = []
 
-      row.forEach((currentTile, tileIndex, currentRow) => { //element, elementIndex, array
+      row.forEach((currentTile) => { //element, elementIndex, array
         const tileElement = document.createElement('span')
         tileElement.className = 'tile'
 
@@ -62,9 +78,47 @@ export default class Board {
         tileElement.classList.add('cell-' + cellClass)
 
         rowElement.appendChild(tileElement)
+        tileRowElements.push(tileElement)
       })
+
+      this.boardTilesElements.push(tileRowElements)
     })
   }
+
+  updateElevenDisplay() {
+    this.tiles.forEach(square => square.classList.remove('player'))
+    squares[playerIndex].classList.add('player')
+  }
+
+  moveDemogorgons() {
+
+  }
+
+  moveEleven() {
+
+  }
+
+  getNextCharacterAcceptablePosition(currentPosition, direction) {
+    switch (direction) {
+      case this.directions.up:
+        if (currentPosition[0] === 0)
+          return currentPosition
+        else return [currentPosition[0] - 1, currentPosition[1]]
+      case this.directions.down:
+        if (currentPosition[0] === this.maxRow)
+          return currentPosition
+        else return [currentPosition[0] + 1, currentPosition[1]]
+      case this.directions.left:
+        if (currentPosition[1] === 0)
+          return currentPosition
+        else return [currentPosition[0], currentPosition[1] - 1]
+      case this.directions.right:
+        if (currentPosition[1] === this.maxColumn)
+          return currentPosition
+        else return [currentPosition[0], currentPosition[1] + 1]
+    }
+  }
+
 
   tileTypes = {
     'wall': '■',
@@ -75,5 +129,17 @@ export default class Board {
     'demogorgon': 'D',
     'target': 'T',
     'empty': ' '
+  }
+
+  boardStatesTypes = {
+    'standard': 'standard',
+    'eggosMode': 'eggosMode'
+  }
+
+  directions = {
+    up: 38,
+    down: 40,
+    left: 37,
+    right: 39
   }
 }

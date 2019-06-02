@@ -7,17 +7,18 @@ export default class LevelsStorage {
   }
 
   // Map Tiles Types
-  //   '■' = wall
-  //   '·' = food
-  //   '+' = eggos
-  //   'u' = upside down world
-  //   'E' = eleven
-  //   'D' = demagorgon
-  //   't' = monsters default target
+  //   '■' = Walls
+  //   '·' = Food
+  //   '+' = Eggos
+  //   'U' = Upside Down World
+  //   'E' = Eleven
+  //   'D' = Demagorgon
+  //   'T' = Monsters Default Target
 
-  // drawing the grid using a array of stings
-  // the ghosts and pacman move freely but are 
-  // not allowed to cross walls
+  // Using the array of strings as reference I was able to draw 
+  // the complete grid with characters on the "game-board.CSS" file sheet.
+  // Doing so the monsters and Eleven are free to move around the gameboard 
+  // and not allowed to cross the walls.
 
   level1 = [
     '■■■■■■■■■■■■■■■■■■■■■■■■■■■■',
