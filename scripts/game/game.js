@@ -9,10 +9,20 @@ export default class Game {
     this.currentBoard = new Board(this.currentLevel)
 
     this.bindKeyboardEvents()
+    this.bindMouseEvents()
   }
 
   bindKeyboardEvents() {
     window.addEventListener('keydown', this.handleKeyDown.bind(this))
+  }
+
+  bindMouseEvents() {
+    const startButtonElement = document.getElementById('start-game-link')
+    const bodyElement = document.body
+    startButtonElement.addEventListener('click', () => {
+      bodyElement.classList.remove('state-start')
+      bodyElement.classList.add('state-game')
+    })
   }
 
   handleKeyDown(e) {
