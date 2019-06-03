@@ -14,6 +14,7 @@ export default class Board {
     this.scoreBoardElement = document.querySelector('#scoreboard span')
 
     this.currentScore = 0
+    this.remainingLives = 3
 
     this.maxColumn = this.currentLevel[0].length - 1
     this.maxRow = this.currentLevel.length - 1
@@ -21,6 +22,7 @@ export default class Board {
     this.boardTilesElements = []
 
     this.gameModeType = this.gameModeTypes.standard
+    this.eggosModeTimeout = 0
 
     this.populateBoardDom()
   }
@@ -60,6 +62,15 @@ export default class Board {
   updateBoard(keyCode) {
     this.updateElevenPosition(keyCode)
     this.moveDemogorgons()
+
+    if (this.hasFood(this.eleven.position))
+      this.eatFood(this.eleven.position)
+
+    if (this.hasEggo(this.eleven.position))
+      this.eatEggo(this.eleven.position)
+
+    this.checkWinCondition()
+    this.checkLoseCondition()
   }
 
   updateElevenPosition(keyCode) {
@@ -72,12 +83,6 @@ export default class Board {
     this.eleven.position = nextElevenPosition
     const currentElevenElement = this.boardTilesElements[this.eleven.position[0]][this.eleven.position[1]]
     currentElevenElement.classList.add('cell-eleven')
-
-    if (this.hasFood(this.eleven.position))
-      this.eatFood(this.eleven.position)
-
-    if (this.hasEggo(this.eleven.position))
-      this.eatEggo(this.eleven.position)
   }
 
   isWall(position) {
@@ -113,13 +118,18 @@ export default class Board {
     const selectedTile = this.boardTiles[position[0]][position[1]]
     selectedTile.tileTypeChar = this.tileTypes.empty
 
-    this.updateGameMode(this.gameModeTypes.eggosMode)
+    this.updateGameMode(this.gameModeTypes.standard, this.gameModeTypes.eggosMode)
+
+    window.clearTimeout(this.eggosModeTimeout)
+    this.eggosModeTimeout = window.setTimeout((() => {
+      this.updateGameMode(this.gameModeTypes.eggosMode, this.gameModeTypes.standard)
+    }).bind(this), 5000)
   }
 
-  updateGameMode(gameModeType) {
-    this.gameModeType = gameModeType
-    document.body.classList.add('game-' + this.gameModeType)
-
+  updateGameMode(oldGameModeType, newGameModeType) {
+    this.gameModeType = newGameModeType
+    document.body.classList.remove('game-' + oldGameModeType)
+    document.body.classList.add('game-' + newGameModeType)
   }
 
   updateScore(addedScore) {
@@ -162,10 +172,28 @@ export default class Board {
 
   }
 
+  checkLoseCondition() {
+    // for each demogorgon, check if demogorgon position is the same as eleven position
 
+
+    if (this.remainingLives > 0)
+      this.resetElevenPosition()
+    else this.loseGame()
+  }
+
+  checkWinCondition() {
+    // check if there are no food items left
+  }
+
+  resetElevenPosition() {
+
+  }
+
+  loseGame() {
+
+  }
 
   // move Eleven according to keyboard commands
-
   getNextCharacterAcceptablePosition(currentPosition, direction) {
     switch (direction) {
       case this.directions.up:
