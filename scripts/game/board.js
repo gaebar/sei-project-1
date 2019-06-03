@@ -10,6 +10,8 @@ export default class Board {
     this.eleven = new Eleven()
     this.demogorgons = []
     this.currentBoard = this.createBoard()
+    this.scoreBoardElement = document.querySelector('#scoreboard span')
+    this.currentScore = 0
 
     this.maxColumn = this.currentLevel[0].length - 1
     this.maxRow = this.currentLevel.length - 1
@@ -54,21 +56,47 @@ export default class Board {
   // Move Eleven: removes the class from old Eleven position and assign a new one
   // to avoid walls I used the if statement "!this.isWall"
   updateBoard(keyCode) {
-    const nextElevenPosition = this.getNextCharacterAcceptablePosition(this.eleven.position, keyCode)
-    if (!this.isWall(nextElevenPosition)) {
-      const oldElevenElement = this.boardTilesElements[this.eleven.position[0]][this.eleven.position[1]]
-      oldElevenElement.classList.remove('cell-eleven')
-      this.eleven.position = nextElevenPosition
-      const currentElevenElement = this.boardTilesElements[this.eleven.position[0]][this.eleven.position[1]]
-      currentElevenElement.classList.add('cell-eleven')
-    }
-
+    this.updateElevenPosition(keyCode)
     this.moveDemogorgons()
+  }
+
+  updateElevenPosition(keyCode) {
+    const nextElevenPosition = this.getNextCharacterAcceptablePosition(this.eleven.position, keyCode)
+    if (this.isWall(nextElevenPosition))
+      return
+
+    const oldElevenElement = this.boardTilesElements[this.eleven.position[0]][this.eleven.position[1]]
+    oldElevenElement.classList.remove('cell-eleven')
+    this.eleven.position = nextElevenPosition
+    const currentElevenElement = this.boardTilesElements[this.eleven.position[0]][this.eleven.position[1]]
+    currentElevenElement.classList.add('cell-eleven')
+
+    if (this.hasFood(this.eleven.position))
+      this.eatFood(this.eleven.position)
   }
 
   isWall(position) {
     const selectedTile = this.currentBoard[position[0]][position[1]]
     return selectedTile.tileTypeChar === this.tileTypes.wall
+  }
+
+  hasFood(position) {
+    const selectedTile = this.currentBoard[position[0]][position[1]]
+    return selectedTile.tileTypeChar === this.tileTypes.food
+  }
+
+  eatFood(position) {
+    this.updateScore(10)
+    const tileElement = this.boardTilesElements[position[0]][position[1]]
+    tileElement.classList.remove('cell-food')
+
+    const selectedTile = this.currentBoard[position[0]][position[1]]
+    selectedTile.tileTypeChar = this.tileTypes.empty
+  }
+
+  updateScore(addedScore) {
+    this.currentScore += addedScore
+    this.scoreBoardElement.textContent = this.currentScore
   }
 
   // Starting from the level map, create DOM elements and assign classes to display the map
