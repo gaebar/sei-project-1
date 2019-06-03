@@ -11,4 +11,6 @@ div.grid-item.player {
     background-size: contain;
   }
   
- 
+ .game-eggos-mode span.tile.cell-demogorgon {
+    background-color: blue;
+}

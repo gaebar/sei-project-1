@@ -9,7 +9,7 @@ export default class Tile {
 /*
 '■': 'wall',
 '·': 'food',
-'+': 'eggos',
+'+': 'eggo',
 'u': 'upside down world',
 'E': 'eleven',
 'D': 'demagorgon',

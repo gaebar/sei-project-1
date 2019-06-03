@@ -9,7 +9,7 @@ export default class LevelsStorage {
   // Map Tiles Types
   //   '■' = Walls
   //   '·' = Food
-  //   '+' = Eggos
+  //   '+' = Eggo
   //   'U' = Upside Down World
   //   'E' = Eleven
   //   'D' = Demagorgon

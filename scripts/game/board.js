@@ -9,8 +9,10 @@ export default class Board {
     this.currentLevel = levelMap
     this.eleven = new Eleven()
     this.demogorgons = []
-    this.currentBoard = this.createBoard()
+    this.boardTiles = this.createBoard()
+
     this.scoreBoardElement = document.querySelector('#scoreboard span')
+
     this.currentScore = 0
 
     this.maxColumn = this.currentLevel[0].length - 1
@@ -18,10 +20,10 @@ export default class Board {
 
     this.boardTilesElements = []
 
+    this.gameModeType = this.gameModeTypes.standard
+
     this.populateBoardDom()
   }
-
-
 
   createBoard() {
     let countDemogorgons = 0
@@ -73,25 +75,51 @@ export default class Board {
 
     if (this.hasFood(this.eleven.position))
       this.eatFood(this.eleven.position)
+
+    if (this.hasEggo(this.eleven.position))
+      this.eatEggo(this.eleven.position)
   }
 
   isWall(position) {
-    const selectedTile = this.currentBoard[position[0]][position[1]]
+    const selectedTile = this.boardTiles[position[0]][position[1]]
     return selectedTile.tileTypeChar === this.tileTypes.wall
   }
 
   hasFood(position) {
-    const selectedTile = this.currentBoard[position[0]][position[1]]
-    return selectedTile.tileTypeChar === this.tileTypes.food
+    const selectedTile = this.boardTiles[position[0]][position[1]]
+    return selectedTile.tileTypeChar === this.tileTypes.food || selectedTile.tileTypeChar === this.tileTypes.target
   }
 
   eatFood(position) {
     this.updateScore(10)
     const tileElement = this.boardTilesElements[position[0]][position[1]]
     tileElement.classList.remove('cell-food')
+    tileElement.classList.remove('cell-target')
 
-    const selectedTile = this.currentBoard[position[0]][position[1]]
+    const selectedTile = this.boardTiles[position[0]][position[1]]
     selectedTile.tileTypeChar = this.tileTypes.empty
+  }
+
+  hasEggo(position) {
+    const selectedTile = this.boardTiles[position[0]][position[1]]
+    return selectedTile.tileTypeChar === this.tileTypes.eggo
+  }
+
+  eatEggo(position) {
+    this.updateScore(100)
+    const tileElement = this.boardTilesElements[position[0]][position[1]]
+    tileElement.classList.remove('cell-eggo')
+
+    const selectedTile = this.boardTiles[position[0]][position[1]]
+    selectedTile.tileTypeChar = this.tileTypes.empty
+
+    this.updateGameMode(this.gameModeTypes.eggosMode)
+  }
+
+  updateGameMode(gameModeType) {
+    this.gameModeType = gameModeType
+    document.body.classList.add('game-' + this.gameModeType)
+
   }
 
   updateScore(addedScore) {
@@ -104,7 +132,7 @@ export default class Board {
     const boardElement = document.getElementById('game-board')
     boardElement.innerHTML = ''
 
-    this.currentBoard.forEach((row) => {
+    this.boardTiles.forEach((row) => {
       const rowElement = document.createElement('div')
       rowElement.className = 'board-row'
       boardElement.appendChild(rowElement)
@@ -149,10 +177,16 @@ export default class Board {
           return currentPosition
         else return [currentPosition[0] + 1, currentPosition[1]]
       case this.directions.left:
-        if (currentPosition[1] === 0)
+        // pacman effect left
+        if (currentPosition[1] === 0 && currentPosition[0] === this.maxRow / 2 - 1)
+          return [this.maxRow / 2 - 1, this.maxColumn]
+        else if (currentPosition[1] === 0)
           return currentPosition
         else return [currentPosition[0], currentPosition[1] - 1]
       case this.directions.right:
+        // pacman effect right
+        if (currentPosition[1] === this.maxColumn && currentPosition[0] === this.maxRow / 2 - 1)
+          return [this.maxRow / 2 - 1, 0]
         if (currentPosition[1] === this.maxColumn)
           return currentPosition
         else return [currentPosition[0], currentPosition[1] + 1]
@@ -163,7 +197,7 @@ export default class Board {
   tileTypes = {
     'wall': '■',
     'food': '·',
-    'eggos': '+',
+    'eggo': '+',
     'upside': 'U',
     'eleven': 'E',
     'demogorgon': 'D',
@@ -172,9 +206,9 @@ export default class Board {
   }
 
   // different states for the board
-  boardStatesTypes = {
-    'standard': 'standard',
-    'eggosMode': 'eggosMode'
+  gameModeTypes = {
+    standard: 'standard',
+    eggosMode: 'eggos-mode'
   }
 
   // map between keyboards, keycodes and directions

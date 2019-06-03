@@ -17,7 +17,7 @@ span.tile.cell-wall {
     border: 2px solid green;
 }
 
-span.tile.cell-eggos {
+span.tile.cell-eggo {
     background-image: url(../images/eggo.png);
     background-size: 70%;
     background-repeat: no-repeat;
