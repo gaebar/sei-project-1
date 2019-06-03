@@ -22,8 +22,10 @@ span.tile.cell-eggos {
     background-size: 70%;
     background-repeat: no-repeat;
     background-position: 3.2px 2.1px;
+    /* animation-iteration-count: infinite; */
+    animation: flash 1s infinite;
+    
 }
-
 
 span.tile.cell-eleven {
     background-image: url(../images/eleven.png);
@@ -46,3 +48,17 @@ span.tile.cell-food:before, span.tile.cell-target:before {
     content: '\25CF';
     font-size: 10px;
   }
+
+  /* TRYING TO FIGURE OUT HOW THE BLINK IMAGE WORK */
+
+.flash {
+animation-name: flash;
+}
+@-webkit-keyframes flash {
+    0% { opacity: .1; }
+    100% { opacity: 3; }
+   }
+   @keyframes flash {
+    0% { opacity: .1; }
+    100% { opacity: 3; }
+   }

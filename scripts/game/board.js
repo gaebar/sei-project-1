@@ -52,15 +52,23 @@ export default class Board {
   }
 
   // Move Eleven: removes the class from old Eleven position and assign a new one
+  // to avoid walls I used the if statement "!this.isWall"
   updateBoard(keyCode) {
-    const oldElevenElement = this.boardTilesElements[this.eleven.position[0]][this.eleven.position[1]]
-    oldElevenElement.classList.remove('cell-eleven')
-
-    this.eleven.position = this.getNextCharacterAcceptablePosition(this.eleven.position, keyCode)
-    const currentElevenElement = this.boardTilesElements[this.eleven.position[0]][this.eleven.position[1]]
-    currentElevenElement.classList.add('cell-eleven')
+    const nextElevenPosition = this.getNextCharacterAcceptablePosition(this.eleven.position, keyCode)
+    if (!this.isWall(nextElevenPosition)) {
+      const oldElevenElement = this.boardTilesElements[this.eleven.position[0]][this.eleven.position[1]]
+      oldElevenElement.classList.remove('cell-eleven')
+      this.eleven.position = nextElevenPosition
+      const currentElevenElement = this.boardTilesElements[this.eleven.position[0]][this.eleven.position[1]]
+      currentElevenElement.classList.add('cell-eleven')
+    }
 
     this.moveDemogorgons()
+  }
+
+  isWall(position) {
+    const selectedTile = this.currentBoard[position[0]][position[1]]
+    return selectedTile.tileTypeChar === this.tileTypes.wall
   }
 
   // Starting from the level map, create DOM elements and assign classes to display the map
@@ -74,7 +82,7 @@ export default class Board {
       boardElement.appendChild(rowElement)
       const tileRowElements = []
 
-      row.forEach((currentTile) => { //element, elementIndex, array
+      row.forEach((currentTile) => {
         const tileElement = document.createElement('span')
         tileElement.className = 'tile'
 
@@ -142,7 +150,6 @@ export default class Board {
   }
 
   // map between keyboards, keycodes and directions
-
   directions = {
     up: 38,
     down: 40,
