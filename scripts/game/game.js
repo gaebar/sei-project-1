@@ -1,6 +1,8 @@
 import Board from './board.js'
 import LevelsStorage from '../levels/levelsStorage.js'
 
+// const audio = document.getElementById('audio')   // CHECK!
+
 export default class Game {
   constructor() {
     this.levelsStorage = new LevelsStorage()
@@ -21,7 +23,10 @@ export default class Game {
   bindMouseEvents() {
     const startButtonElement = document.getElementById('start-game-link')
     startButtonElement.addEventListener('click', () => {
+      // audio.src = './audio/start-button.mp3'
+      // audio.play()
       this.startGame()
+
     })
   }
 
