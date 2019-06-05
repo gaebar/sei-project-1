@@ -17,7 +17,9 @@ export default class Board {
     this.scoreBoardElement = document.querySelector('#scoreboard span')
 
     this.currentScore = 0
-    this.remainingLives = 3
+    this.initialRemainLives = 3
+
+    this.remainingLives = this.initialRemainLives
     this.spanLivesElement = document.querySelector('#lives')
 
     this.maxColumn = this.currentLevel[0].length - 1
@@ -196,7 +198,6 @@ export default class Board {
   checkLoseCondition() {
     if (this.remainingLives < 0)
       this.loseGame()
-
   }
 
   checkWinCondition() {
@@ -215,13 +216,26 @@ export default class Board {
     this.spanLivesElement.classList.add('remaining-lives-' + this.remainingLives)
   }
 
+  resetLivesDOMElement() {
+    this.spanLivesElement.className = ''
+  }
+
 
   loseGame() {
+    document.body.classList.remove('state-game')
+    document.body.classList.add('state-lose')
     this.resetBoard()
   }
 
   resetBoard() {
+    this.remainingLives = this.initialRemainLives
+    this.resetLivesDOMElement()
+    this.resetScoreBoard()
+  }
 
+  resetScoreBoard() {
+    this.currentScore = 0
+    this.scoreBoardElement.textContent = 0
   }
 
   // move Eleven according to keyboard commands
