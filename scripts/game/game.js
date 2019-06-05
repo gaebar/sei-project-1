@@ -10,6 +10,8 @@ export default class Game {
 
     this.currentBoard = new Board(this.currentLevel)
 
+    this.updateBoardIntervalID = 0
+
     this.bindKeyboardEvents()
     this.bindMouseEvents()
 
@@ -31,7 +33,10 @@ export default class Game {
   }
 
   handleKeyDown(e) {
-    this.currentBoard.updateBoard(e.keyCode)
+    window.clearInterval(this.updateBoardIntervalID)
+    this.updateBoardIntervalID = window.setInterval((() => {
+      this.currentBoard.updateBoard(e.keyCode)
+    }).bind(this), 100)
   }
 
   startGame() {
@@ -53,32 +58,3 @@ export default class Game {
 
   resetGame() { }
 }
-
-// INCREASE SCORE
-
-// newGame() {
-//   this.level = 1;
-//   this.score = 0;
-//   this.isLost = false;
-//   this.lives = 3;
-//   this.newLevel();
-// }
-
-// newLevel() {
-//   this.eleven = new Eleven(this);
-//   this.demogorgons = [];
-//   this.scatter = false;
-//   this.modeCount = 0;
-
-//   for (let i = 0; i < 4; i++) {
-//     this.demogorgons.push(new Demogorgon(this, i));
-//   }
-
-
-// // START GAME BUTTON - When start "Friend's don't lie" sound, then stranger things theme
-// const $startButton = $('#start-game')
-// $startButton.on('click', () => {
-//   audio.src = '../audio/intro.wav'
-//   audio.play()
-//   startGame()
-// })
