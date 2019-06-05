@@ -12,6 +12,7 @@ export default class Board {
     this.initialElevenPosition
 
     this.demogorgons = []
+    this.targets = []
     this.boardTiles = this.createBoard()
 
     this.scoreBoardElement = document.querySelector('#scoreboard span')
@@ -35,6 +36,7 @@ export default class Board {
 
   createBoard() {
     let countDemogorgons = 0
+    const countTargets = 0
     const board = []
 
     // cycle over rows in the map
@@ -57,6 +59,9 @@ export default class Board {
           case this.tileTypes.demogorgon:
             this.demogorgons[countDemogorgons] = new Demogorgon([rowIndex, columnIndex])
             countDemogorgons++
+            return
+          case this.tileTypes.target:
+            this.targets.push([rowIndex, columnIndex])
             return
         }
       })
@@ -91,6 +96,14 @@ export default class Board {
     this.eleven.position = nextElevenPosition
     const currentElevenElement = this.boardTilesElements[this.eleven.position[0]][this.eleven.position[1]]
     currentElevenElement.classList.add('cell-eleven')
+  }
+
+  updateDemogorgonPosition(demogorgon, nextPosition) {
+    const oldDemogorgonElement = this.boardTilesElements[demogorgon.position[0]][demogorgon.position[1]]
+    oldDemogorgonElement.classList.remove('cell-demogorgon')
+    demogorgon.position = nextPosition
+    const currentDemogorgonElement = this.boardTilesElements[demogorgon.position[0]][demogorgon.position[1]]
+    currentDemogorgonElement.classList.add('cell-demogorgon')
   }
 
   isWall(position) {
@@ -186,13 +199,36 @@ export default class Board {
     })
   }
 
-  updateElevenDisplay() {
-    // this.tiles.forEach(square => square.classList.remove('player'))
-    // squares[playerIndex].classList.add('player')
+  moveDemogorgons() {
+    this.demogorgons.forEach((demogorgon, index) => {
+      const nextPosition = this.getClosestAllowedPosition(demogorgon.position, this.targets[index])
+      this.updateDemogorgonPosition(demogorgon, nextPosition)
+    })
   }
 
-  moveDemogorgons() {
+  getClosestAllowedPosition(demogorgonPosition, target) {
+    const possibleNextPositions = []
+    Object.keys(this.directions).forEach(function (key) {
+      const nextPosition = this.getNextCharacterAcceptablePosition(demogorgonPosition, this.directions[key])
+      const distanceFromTarget = this.calculateDistanceFromTarget(nextPosition, target)
 
+      if (this.isWall(nextPosition))
+        return
+
+      possibleNextPositions.push([nextPosition, distanceFromTarget])
+    }.bind(this))
+
+    // sort possible demogorgons move directions by distance, using the array sort method
+    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
+    possibleNextPositions.sort((position2, position1) => {
+      return position2[1] - position1[1]
+    })
+
+    return possibleNextPositions[0][0]
+  }
+
+  calculateDistanceFromTarget(position1, position2) {
+    return Math.round(Math.sqrt(((position1[0] - position2[0]) ** 2) + ((position1[1] - position2[1]) ** 2)) * 10) / 10
   }
 
   checkLoseCondition() {
