@@ -202,15 +202,16 @@ export default class Board {
   moveDemogorgons() {
     this.updateTargets()
     this.demogorgons.forEach((demogorgon, index) => {
-      const nextPosition = this.getClosestAllowedPosition(demogorgon.position, this.targets[index])
-      this.updateDemogorgonPosition(demogorgon, nextPosition)
+      const positionDirection = this.getClosestAllowedPosition(demogorgon, this.targets[index])
+      demogorgon.direction = positionDirection.direction
+      this.updateDemogorgonPosition(demogorgon, positionDirection.nextPosition)
     })
   }
 
   updateTargets() {
 
     this.targets.forEach((target) => {
-      if (Math.random() > 0.8) {
+      if (Math.random() > 0.9) {
         target[0] = Math.floor(Math.random() * this.maxRow)
         target[1] = Math.floor(Math.random() * this.maxColumn)
       } else if (Math.random() < 0.3) {
@@ -220,25 +221,34 @@ export default class Board {
     })
   }
 
-  getClosestAllowedPosition(demogorgonPosition, target) {
+  getClosestAllowedPosition(demogorgon, target) {
     const possibleNextPositions = []
     Object.keys(this.directions).forEach(function (key) {
-      const nextPosition = this.getNextCharacterAcceptablePosition(demogorgonPosition, this.directions[key])
-      const distanceFromTarget = this.calculateDistanceFromTarget(nextPosition, target)
+      const nextPosition = this.getNextCharacterAcceptablePosition(demogorgon.position, this.directions[key])
+      let distanceFromTarget = this.calculateDistanceFromTarget(nextPosition, target)
 
       if (this.isWall(nextPosition))
         return
 
-      possibleNextPositions.push([nextPosition, distanceFromTarget])
+      // reduce the distance from target to discourage the demogorgon from changing position
+      if (demogorgon.direction === this.directions[key])
+        distanceFromTarget = distanceFromTarget * 0.9
+
+
+      possibleNextPositions.push({
+        nextPosition: nextPosition,
+        distanceFromTarget: distanceFromTarget,
+        direction: this.directions[key]
+      })
     }.bind(this))
 
     // sort possible demogorgons move directions by distance, using the array sort method
     // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
     possibleNextPositions.sort((position2, position1) => {
-      return position2[1] - position1[1]
+      return position2.distanceFromTarget - position1.distanceFromTarget
     })
 
-    return possibleNextPositions[0][0]
+    return possibleNextPositions[0]
   }
 
   calculateDistanceFromTarget(position1, position2) {

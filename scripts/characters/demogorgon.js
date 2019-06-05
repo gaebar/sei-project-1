@@ -6,6 +6,7 @@ export default class Demogorgon {
   }
 
   target = []
+  direction = ''
 
   move(direction) {
 

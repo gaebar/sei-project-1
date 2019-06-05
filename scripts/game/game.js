@@ -36,7 +36,7 @@ export default class Game {
     window.clearInterval(this.updateBoardIntervalID)
     this.updateBoardIntervalID = window.setInterval((() => {
       this.currentBoard.updateBoard(e.keyCode)
-    }).bind(this), 100)
+    }).bind(this), 150)
   }
 
   startGame() {

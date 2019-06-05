@@ -3,6 +3,7 @@ export default class Character {
     this.position = position
   }
 
+
   move(direction) {
 
   }
