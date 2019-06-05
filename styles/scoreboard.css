@@ -5,6 +5,7 @@
     height: 38px;
     display: inline-block;
     margin-top: 4px;
+    transition: all ease-out 0.2s
 }
 
 #current-level {
@@ -34,4 +35,16 @@ div#lives {
     display: inline-block;
     height: 67px;
     background: content-box;
+}
+
+div#lives.remaining-lives-2 span:nth-child(3){
+     opacity:0;
+}
+
+div#lives.remaining-lives-1 span:nth-child(2){
+    opacity:0;
+}
+
+div#lives.remaining-lives-0 span:nth-child(1){
+    opacity:0;
 }

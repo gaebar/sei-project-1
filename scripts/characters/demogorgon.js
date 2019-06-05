@@ -1,7 +1,8 @@
 // Studying and storage here the movement of the monsters
 
 export default class Demogorgon {
-  constructor() {
+  constructor(position) {
+    this.position = position
   }
 
   target = []

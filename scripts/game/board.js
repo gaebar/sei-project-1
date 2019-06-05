@@ -7,7 +7,10 @@ import Demogorgon from '../characters/demogorgon.js'
 export default class Board {
   constructor(levelMap) {
     this.currentLevel = levelMap
+
     this.eleven = new Eleven()
+    this.initialElevenPosition
+
     this.demogorgons = []
     this.boardTiles = this.createBoard()
 
@@ -15,6 +18,7 @@ export default class Board {
 
     this.currentScore = 0
     this.remainingLives = 3
+    this.spanLivesElement = document.querySelector('#lives')
 
     this.maxColumn = this.currentLevel[0].length - 1
     this.maxRow = this.currentLevel.length - 1
@@ -46,6 +50,7 @@ export default class Board {
         switch (tileChar) {
           case this.tileTypes.eleven:
             this.eleven.position = [rowIndex, columnIndex]
+            this.initialElevenPosition = this.eleven.position
             return
           case this.tileTypes.demogorgon:
             this.demogorgons[countDemogorgons] = new Demogorgon([rowIndex, columnIndex])
@@ -69,6 +74,7 @@ export default class Board {
     if (this.hasEggo(this.eleven.position))
       this.eatEggo(this.eleven.position)
 
+    this.checkCollisionWithDemogorgon()
     this.checkWinCondition()
     this.checkLoseCondition()
   }
@@ -137,6 +143,21 @@ export default class Board {
     this.scoreBoardElement.textContent = this.currentScore
   }
 
+  // for each demogorgon, check if demogorgon position is the same as eleven position
+  checkCollisionWithDemogorgon() {
+    this.demogorgons.forEach(demogorgon => {
+      if (this.eleven.position[0] === demogorgon.position[0] && this.eleven.position[1] === demogorgon.position[1]) {
+        this.loseLife()
+      }
+    })
+  }
+
+  loseLife() {
+    this.remainingLives--
+    this.resetElevenPosition()
+    this.removeLifeDOMElement()
+  }
+
   // Starting from the level map, create DOM elements and assign classes to display the map
   populateBoardDom() {
     const boardElement = document.getElementById('game-board')
@@ -173,12 +194,9 @@ export default class Board {
   }
 
   checkLoseCondition() {
-    // for each demogorgon, check if demogorgon position is the same as eleven position
+    if (this.remainingLives < 0)
+      this.loseGame()
 
-
-    if (this.remainingLives > 0)
-      this.resetElevenPosition()
-    else this.loseGame()
   }
 
   checkWinCondition() {
@@ -186,10 +204,23 @@ export default class Board {
   }
 
   resetElevenPosition() {
-
+    const oldElevenElement = this.boardTilesElements[this.eleven.position[0]][this.eleven.position[1]]
+    oldElevenElement.classList.remove('cell-eleven')
+    this.eleven.position = this.initialElevenPosition
+    const currentElevenElement = this.boardTilesElements[this.eleven.position[0]][this.eleven.position[1]]
+    currentElevenElement.classList.add('cell-eleven')
   }
 
+  removeLifeDOMElement() {
+    this.spanLivesElement.classList.add('remaining-lives-' + this.remainingLives)
+  }
+
+
   loseGame() {
+    this.resetBoard()
+  }
+
+  resetBoard() {
 
   }
 
