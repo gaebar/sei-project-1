@@ -200,9 +200,23 @@ export default class Board {
   }
 
   moveDemogorgons() {
+    this.updateTargets()
     this.demogorgons.forEach((demogorgon, index) => {
       const nextPosition = this.getClosestAllowedPosition(demogorgon.position, this.targets[index])
       this.updateDemogorgonPosition(demogorgon, nextPosition)
+    })
+  }
+
+  updateTargets() {
+
+    this.targets.forEach((target) => {
+      if (Math.random() > 0.8) {
+        target[0] = Math.floor(Math.random() * this.maxRow)
+        target[1] = Math.floor(Math.random() * this.maxColumn)
+      } else if (Math.random() < 0.3) {
+        target[0] = this.eleven.position[0]
+        target[1] = this.eleven.position[1]
+      }
     })
   }
 
