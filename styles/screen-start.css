@@ -40,6 +40,24 @@
   line-height: 13px;
 }
 
+.state-lose .screen-start .instructions {
+  background-image: url(../images/lose.gif);
+  color: transparent;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 430px;
+  box-shadow: 1px 1px 1px 1px black;
+}
+
+.state-win .screen-start .instructions {
+  background-image: url(../images/win2.gif);
+  color: transparent;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 430px;
+  box-shadow: 1px 1px 1px 1px black;
+}
+
 .screen-start .instructions h3 {
   margin: 1em 0;
   font-size: 1.5em;
@@ -79,4 +97,15 @@
 #restart-game:hover {
   background-color: #efad69;
   cursor: pointer;
+}
+
+.restart-copy {
+  display: none;
+}
+.state-win .restart-copy, .state-lose .restart-copy{
+  display:inline;
+}
+
+.state-win .start-copy, .state-lose .start-copy {
+  display:none;
 }
