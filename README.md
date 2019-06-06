@@ -1,5 +1,5 @@
-# SEI Project 1 - Pac-Man
-See the project online at https://gaebar.github.io/sei-project-1/
+# SEI Project 1 - Pac-Man variation, inspired by the Stranger Thinkgs Netflix TV Series
+See the game online at https://gaebar.github.io/sei-project-1/
 
 ![Ga Logo](images/GA-logo.png)
 
@@ -40,9 +40,9 @@ Add ghost follow logic where ghosts chase PacMan.
 
 ### Inspiration Material
 These articles describe how the ghosts in the original pac-man behave:
- - [The Pac-Man Dossier](http://www.gamasutra.com/view/feature/3938/the_pacman_dossier.php?print=1);
- - [Ghost Psycology](https://www.webpacman.com/ghosts.html);
- - [Understanding Pac-man Ghost behavior](http://gameinternals.com/post/2072558330/understanding-pac-man-ghost-behavior).
+ - [The Pac-Man Dossier](http://www.gamasutra.com/view/feature/3938/the_pacman_dossier.php?print=1)
+ - [Ghost Psycology](https://www.webpacman.com/ghosts.html)
+ - [Understanding Pac-man Ghost behavior](http://gameinternals.com/post/2072558330/understanding-pac-man-ghost-behavior)
 
 
 ### Query String Paramenters
