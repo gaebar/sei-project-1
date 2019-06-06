@@ -7,6 +7,8 @@ export default class Game {
     this.currentLevel = this.levelsStorage.levels[0]
 
     this.currentBoard = new Board(this.currentLevel)
+    this.initialAudio = document.querySelector('#audio')
+    this.themeMusic = document.querySelector('#theme-music')
 
     this.bindKeyboardEvents()
     this.bindMouseEvents()
@@ -23,10 +25,11 @@ export default class Game {
   bindMouseEvents() {
     const startButtonElement = document.getElementById('start-game-link')
     startButtonElement.addEventListener('click', () => {
-      // audio.src = '../audio/start-button.mp3'
-      // audio.play()
+      this.initialAudio.play()
       this.startGame()
-
+      window.setTimeout((() => {
+        this.themeMusic.play()
+      }).bind(this), 1000)
     })
   }
 

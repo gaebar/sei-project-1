@@ -21,7 +21,7 @@ export default class Board {
     this.scoreBoardElement = document.querySelector('#scoreboard span')
 
     this.currentScore = 0
-    this.initialRemainLives = 0
+    this.initialRemainLives = 3
     this.remainingFood = this.initialRemainingFood
 
     this.remainingLives = this.initialRemainLives
