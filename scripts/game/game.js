@@ -1,8 +1,6 @@
 import Board from './board.js'
 import LevelsStorage from '../levels/levelsStorage.js'
 
-// const audio = document.getElementById('audio')   // CHECK!
-
 export default class Game {
   constructor() {
     this.levelsStorage = new LevelsStorage()
@@ -22,10 +20,12 @@ export default class Game {
     window.addEventListener('keydown', this.handleKeyDown.bind(this))
   }
 
+  // const audio = new Audio()
+
   bindMouseEvents() {
     const startButtonElement = document.getElementById('start-game-link')
     startButtonElement.addEventListener('click', () => {
-      // audio.src = './audio/start-button.mp3'
+      // audio.src = '../audio/start-button.mp3'
       // audio.play()
       this.startGame()
 
@@ -52,9 +52,22 @@ export default class Game {
       this.startGame()
   }
 
-  winGame() { }
+  // TRY
+  winGame() {
+    // const bodyElement = document.body
+    // bodyElement.classList.remove('state-start')
+    // bodyElement.classList.add('state-game')
+  }
 
-  loseGame() { }
+  loseGame() {
+    const bodyElement = document.body
+    bodyElement.classList.remove('start-start')
+    bodyElement.classList.add('start-game')
+  }
 
-  resetGame() { }
+  resetGame() {
+    const bodyElement = document.body
+    bodyElement.classList.remove('start-start')
+    bodyElement.classList.add('state-game')
+  }
 }

@@ -17,16 +17,17 @@
 }
 
 .screen-start h2 {
-  font-size: 2.5em;
+  font-size: 2.0em;
   text-transform: uppercase;
   background-image: url(../images/logo.png);
   width: 662px;
   display: inline-block;
   margin-top: 0;
-  padding-top: 145px;
+  padding-top: 135px;
   background-repeat: no-repeat;
-  background-size: 46%;
+  background-size: 48%;
   background-position: center -78px;
+  animation: flash linear 5s infinite;
 }
 
 
@@ -34,9 +35,9 @@
 .screen-start .instructions {
   background-color: rgba(0, 0, 0, 0.66);
   border-radius: 1em;
-  padding: 1em 2em;
-  width: 540px;
-  font-size: 16px;
+  padding: 0.8em 1em;
+  width: 652px;
+  font-size: 14px;
   font-family: sans-serif;
   line-height: 13px;
 }
@@ -45,7 +46,7 @@
   margin: 1em 0;
   font-size: 1.5em;
   text-transform: uppercase;
-  line-height: 32px;
+  line-height: 20px;
 }
 
 .screen-start .instructions p {
@@ -56,13 +57,13 @@
 
 #start-game-link,
 #restart-game-link {
-  margin: 2em;
+  margin: 1em;
   color: black;
-  font-size: 1.5em;
+  font-size: 1.3em;
   text-transform: uppercase;
   background-color: #ee8d29;
-  padding: 1em 3em;
-  border-radius: 1em;
+  padding: 0.4em 2em;
+  border-radius: 0.5em;
   cursor: pointer;
 }
 
