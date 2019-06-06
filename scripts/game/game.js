@@ -8,8 +8,6 @@ export default class Game {
 
     this.currentBoard = new Board(this.currentLevel)
 
-    this.updateBoardIntervalID = 0
-
     this.bindKeyboardEvents()
     this.bindMouseEvents()
 
@@ -33,10 +31,7 @@ export default class Game {
   }
 
   handleKeyDown(e) {
-    window.clearInterval(this.updateBoardIntervalID)
-    this.updateBoardIntervalID = window.setInterval((() => {
-      this.currentBoard.updateBoard(e.keyCode)
-    }).bind(this), 150)
+    this.currentBoard.sendGameInput(e)
   }
 
   startGame() {

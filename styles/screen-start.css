@@ -30,13 +30,11 @@
   animation: flash linear 5s infinite;
 }
 
-
-
 .screen-start .instructions {
   background-color: rgba(0, 0, 0, 0.66);
   border-radius: 1em;
   padding: 0.8em 1em;
-  width: 652px;
+  width: 370px;
   font-size: 14px;
   font-family: sans-serif;
   line-height: 13px;

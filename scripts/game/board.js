@@ -14,11 +14,12 @@ export default class Board {
     this.demogorgons = []
     this.targets = []
     this.boardTiles = this.createBoard()
+    this.boardTilesElements = this.populateBoardDom()
 
     this.scoreBoardElement = document.querySelector('#scoreboard span')
 
     this.currentScore = 0
-    this.initialRemainLives = 3
+    this.initialRemainLives = 0
 
     this.remainingLives = this.initialRemainLives
     this.spanLivesElement = document.querySelector('#lives')
@@ -26,18 +27,16 @@ export default class Board {
     this.maxColumn = this.currentLevel[0].length - 1
     this.maxRow = this.currentLevel.length - 1
 
-    this.boardTilesElements = []
-
     this.gameModeType = this.gameModeTypes.standard
     this.eggosModeTimeout = 0
+    this.updateBoardIntervalID = 0
 
-    this.populateBoardDom()
   }
 
   createBoard() {
-    let countDemogorgons = 0
-    const countTargets = 0
     const board = []
+    this.demogorgons = []
+    this.targets = []
 
     // cycle over rows in the map
     this.currentLevel.forEach((row, rowIndex) => {
@@ -57,8 +56,7 @@ export default class Board {
             this.initialElevenPosition = this.eleven.position
             return
           case this.tileTypes.demogorgon:
-            this.demogorgons[countDemogorgons] = new Demogorgon([rowIndex, columnIndex])
-            countDemogorgons++
+            this.demogorgons.push(new Demogorgon([rowIndex, columnIndex]))
             return
           case this.tileTypes.target:
             this.targets.push([rowIndex, columnIndex])
@@ -178,6 +176,8 @@ export default class Board {
     const boardElement = document.getElementById('game-board')
     boardElement.innerHTML = ''
 
+    const boardTilesElements = []
+
     this.boardTiles.forEach((row) => {
       const rowElement = document.createElement('div')
       rowElement.className = 'board-row'
@@ -195,8 +195,10 @@ export default class Board {
         tileRowElements.push(tileElement)
       })
 
-      this.boardTilesElements.push(tileRowElements)
+      boardTilesElements.push(tileRowElements)
     })
+
+    return boardTilesElements
   }
 
   moveDemogorgons() {
@@ -214,7 +216,7 @@ export default class Board {
       if (Math.random() > 0.9) {
         target[0] = Math.floor(Math.random() * this.maxRow)
         target[1] = Math.floor(Math.random() * this.maxColumn)
-      } else if (Math.random() < 0.3) {
+      } else if (Math.random() > 0.9) { // chase Eleven
         target[0] = this.eleven.position[0]
         target[1] = this.eleven.position[1]
       }
@@ -291,6 +293,9 @@ export default class Board {
     this.remainingLives = this.initialRemainLives
     this.resetLivesDOMElement()
     this.resetScoreBoard()
+    window.clearTimeout(this.updateBoardIntervalID)
+    this.boardTiles = this.createBoard()
+    this.boardTilesElements = this.populateBoardDom()
   }
 
   resetScoreBoard() {
@@ -324,6 +329,13 @@ export default class Board {
           return currentPosition
         else return [currentPosition[0], currentPosition[1] + 1]
     }
+  }
+
+  sendGameInput(keyBoardEvent) {
+    window.clearInterval(this.updateBoardIntervalID)
+    this.updateBoardIntervalID = window.setInterval((() => {
+      this.updateBoard(keyBoardEvent.keyCode)
+    }).bind(this), 150)
   }
 
   // correspondence between map codes and DOM classes 
