@@ -22,9 +22,7 @@ span.tile.cell-eggo {
     background-size: 70%;
     background-repeat: no-repeat;
     background-position: 3.2px 2.1px;
-    /* animation-iteration-count: infinite; */
     animation: flash 1s infinite;
-    
 }
 
 span.tile.cell-eleven {
@@ -40,6 +38,13 @@ span.tile.cell-demogorgon {
     background-repeat: no-repeat;
     background-position: center 3px;
 }
+
+
+.state-blinking span.tile.cell-demogorgon {
+    animation: flash 1s infinite;
+}
+
+
 /**
     Created the dot using the before pseudo element
     https://stackoverflow.com/questions/6936972/draw-circle-using-css-alone
@@ -52,7 +57,7 @@ span.tile.cell-food:before, span.tile.cell-target:before {
   /* TRYING TO FIGURE OUT HOW THE BLINK IMAGE WORK */
 
 .flash {
-animation-name: flash;
+    animation-name: flash;
 }
 @-webkit-keyframes flash {
     0% { opacity: .1; }

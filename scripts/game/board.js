@@ -300,9 +300,18 @@ export default class Board {
   }
 
   winGame() {
-    document.body.classList.remove('state-game')
-    document.body.classList.add('state-win')
-    this.resetBoard()
+    document.body.classList.add('state-blinking')
+
+    window.setTimeout((() => {
+      window.clearTimeout(this.updateBoardIntervalID)
+
+      window.setTimeout((() => {
+        document.body.classList.remove('state-blinking')
+        document.body.classList.remove('state-game')
+        document.body.classList.add('state-win')
+        this.resetBoard()
+      }).bind(this), 5000)
+    }).bind(this), 150)
   }
 
   resetBoard() {
@@ -310,6 +319,7 @@ export default class Board {
     this.remainingFood = this.initialRemainingFood
     this.resetLivesDOMElement()
     this.resetScoreBoard()
+    document.body.className = ''
     window.clearTimeout(this.updateBoardIntervalID)
     this.boardTiles = this.createBoard()
     this.boardTilesElements = this.populateBoardDom()
