@@ -1,8 +1,8 @@
 # SEI Project 1 - Pac-Man
-![](images/GA-logo.png)
 See the project online at https://gaebar.github.io/sei-project-1/
 
-![](images/GA-logo.png)
+![Ga Logo](images/GA-logo.png)
+
 ### Overview
 A recreation of the classic game, where the user can increase their score by moving over points and avoiding ghosts. The ghosts have full follow logic and will track PacMan down or run away after PacMan eats a powerup.
 
@@ -25,26 +25,25 @@ Persistent leaderboard using localStorage.
 Add ghost follow logic where ghosts chase PacMan.
 
 ### Technologies
-HTML5
-CSS3
-Vanilla JavaScript (ECMAScript6)
-jQuery
-Animate.css
-SCSS
-Flexbox
-Git
-GitHub
+ - HTML5
+ - CSS3
+ - JavaScript - ECMAScript6
+ - Animate.css
+ - SCSS
+ - Flexbox
+ - Git
+ - GitHub
 
 ### Resources
-[Pac-Man Arceade gameplay - Youtube](https://www.youtube.com/watch?v=uswzriFIf_k)
-[Pac-Man -Wikipedia](https://en.wikipedia.org/wiki/Pac-Man)
+ - [Pac-Man Arceade gameplay - Youtube](https://www.youtube.com/watch?v=uswzriFIf_k)
+ - [Pac-Man -Wikipedia](https://en.wikipedia.org/wiki/Pac-Man)
 
 ### Inspiration Material
 These articles describe how the ghosts in the original pac-man behave:
-[The Pac-Man Dossier](http://www.gamasutra.com/view/feature/3938/the_pacman_dossier.php?print=1);
-[Ghost Psycology](https://www.webpacman.com/ghosts.html);
-[Understanding Pac-man Ghost behavior](http://gameinternals.com/post/2072558330/understanding-pac-man-ghost-behavior).
+ - [The Pac-Man Dossier](http://www.gamasutra.com/view/feature/3938/the_pacman_dossier.php?print=1);
+ - [Ghost Psycology](https://www.webpacman.com/ghosts.html);
+ - [Understanding Pac-man Ghost behavior](http://gameinternals.com/post/2072558330/understanding-pac-man-ghost-behavior).
 
 
 ### Query String Paramenters
-https://gaebar.github.io/sei-project-1/?screen-state=game to start the game directly
+ - https://gaebar.github.io/sei-project-1/?screen-state=game to start the game directly
