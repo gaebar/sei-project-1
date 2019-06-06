@@ -13,6 +13,8 @@ export default class Board {
 
     this.demogorgons = []
     this.targets = []
+    this.initialRemainingFood = 0
+
     this.boardTiles = this.createBoard()
     this.boardTilesElements = this.populateBoardDom()
 
@@ -20,6 +22,7 @@ export default class Board {
 
     this.currentScore = 0
     this.initialRemainLives = 0
+    this.remainingFood = this.initialRemainingFood
 
     this.remainingLives = this.initialRemainLives
     this.spanLivesElement = document.querySelector('#lives')
@@ -30,13 +33,13 @@ export default class Board {
     this.gameModeType = this.gameModeTypes.standard
     this.eggosModeTimeout = 0
     this.updateBoardIntervalID = 0
-
   }
 
   createBoard() {
     const board = []
     this.demogorgons = []
     this.targets = []
+    this.initialRemainingFood = 0
 
     // cycle over rows in the map
     this.currentLevel.forEach((row, rowIndex) => {
@@ -60,6 +63,9 @@ export default class Board {
             return
           case this.tileTypes.target:
             this.targets.push([rowIndex, columnIndex])
+            return
+          case this.tileTypes.food:
+            this.initialRemainingFood++
             return
         }
       })
@@ -116,6 +122,8 @@ export default class Board {
 
   eatFood(position) {
     this.updateScore(10)
+    this.remainingFood--
+
     const tileElement = this.boardTilesElements[position[0]][position[1]]
     tileElement.classList.remove('cell-food')
     tileElement.classList.remove('cell-target')
@@ -264,6 +272,8 @@ export default class Board {
 
   checkWinCondition() {
     // check if there are no food items left
+    if (this.remainingFood === 0)
+      this.winGame()
   }
 
   resetElevenPosition() {
@@ -289,8 +299,15 @@ export default class Board {
     this.resetBoard()
   }
 
+  winGame() {
+    document.body.classList.remove('state-game')
+    document.body.classList.add('state-win')
+    this.resetBoard()
+  }
+
   resetBoard() {
     this.remainingLives = this.initialRemainLives
+    this.remainingFood = this.initialRemainingFood
     this.resetLivesDOMElement()
     this.resetScoreBoard()
     window.clearTimeout(this.updateBoardIntervalID)
