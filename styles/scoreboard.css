@@ -31,11 +31,14 @@ div#scoreboard {
     margin-top: 10px;
 }
 
+
 div#lives {
     display: inline-block;
     height: 67px;
     background: content-box;
 }
+
+/* Removing lives when you lose */
 
 div#lives.remaining-lives-2 span:nth-child(3){
      opacity:0;

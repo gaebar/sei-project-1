@@ -2,6 +2,10 @@ div#game-board {
     background-color: black;
 }
 
+/* Styling all the characters and element inside the gameborard */
+/* I've created the level maps grid using an Array of string - See level maps in "LevelsStorage.js" file */
+
+/* Styling tile */
 span.tile {
     display: table-cell;
     height: 20px;
@@ -13,10 +17,12 @@ span.tile {
     padding: 0px;
 }
 
+/* Styling each single cell of the tile */
 span.tile.cell-wall {
     border: 2px solid green;
 }
 
+/* Eggo's Waffle styling */
 span.tile.cell-eggo {
     background-image: url(../images/eggo.png);
     background-size: 70%;
@@ -25,6 +31,7 @@ span.tile.cell-eggo {
     animation: flash 1s infinite;
 }
 
+/* Eleven  */
 span.tile.cell-eleven {
     background-image: url(../images/eleven2.png);
     background-size: 100%;
@@ -32,13 +39,13 @@ span.tile.cell-eleven {
     background-position: 0px 1px;
 }
 
+/* Demogorgons */
 span.tile.cell-demogorgon {
     background-image: url(../images/blueGhost.gif);
     background-size: 85%;
     background-repeat: no-repeat;
     background-position: center 3px;
 }
-
 
 .state-blinking span.tile.cell-demogorgon {
     animation: flash 1s infinite;
