@@ -1,5 +1,5 @@
 # SEI Project 1 - Pac-Man variation, inspired by the Stranger Thinkgs Netflix TV Series
-See the game online at https://gaebar.github.io/sei-project-1/
+See the game online at https://gaebar.github.io/eleven-s-game/
 
 ![Ga Logo](images/GA-logo.png)
 
