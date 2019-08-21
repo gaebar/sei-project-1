@@ -1,5 +1,5 @@
 # SEI Project 1 - A Stranger Things themed variation on the classic game Pac Man
-See the game online at https://gaebar.github.io/eleven-s-game/
+See the game online at  https://gaebar.github.io/eleven-s-game/
 
 ![Ga Logo](images/GA-logo.png)
 
@@ -8,7 +8,7 @@ See the game online at https://gaebar.github.io/eleven-s-game/
 > 7 days, solo
 
 ### The Brief
-Render a grid-based game in the browser.
+ - Render a grid-based game in the browser.
 Design logic for winning & visually display which player won.
 Include separate HTML / CSS / JavaScript files.
 Use Javascript or jQuery for DOM manipulation.
@@ -32,18 +32,15 @@ Add ghost follow logic where ghosts chase PacMan.
  - Git
  - GitHub
  
+ ### Install
+ This game uses vanilla javascript and ES6 Javascript modules. There is no compilation step, but you might want to install the eslint packages in order to lint the code and check for formatting errors.
+ ``npm install``
+ 
 ___
 
 ## Game Summary
 
-Eleven’s Game is a Stranger Things themed variation on the classic game Pac Man, where the user can increase their score by moving over points and avoiding the Demogorgons (ghosts).
-
-A one-player game against a computer AI which intelligently hunts down the player. The Demogorgons have full follow logic and will track Elevn down or run away after Eleven eats a powerup.
-
-//// A project built in just over a week, which was both the first game I had built and my first project using Vanilla JavaScript, having only been studying it for two weeks. Eleven’s Game is a Stranger Things themed variation on the classic game Pac Man, a one-player game against a computer AI which intelligently hunts down the player. 
-
-
-A recreation of the classic game, where the user can increase their score by moving over points and avoiding ghosts. The ghosts have full follow logic and will track PacMan down or run away after PacMan eats a powerup./////
+Eleven’s Game is a Stranger Things themed variation on the classic game Pac Man, a one-player game against a computer AI which intelligently hunts down the player. The Demogorgons have full follow logic and will track Elevn down or run away after Eleven eats a powerup.
 
 ### Instructions & Game Controls
 Control Eleven with your keyboard (arrow keys) and save the humanity from the impending invasion of the monsters from the Upside Down world.
