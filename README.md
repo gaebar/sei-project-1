@@ -9,15 +9,15 @@ See the game online at  https://gaebar.github.io/eleven-s-game/
 
 ### The Brief
  - Render a grid-based game in the browser.
-Design logic for winning & visually display which player won.
-Include separate HTML / CSS / JavaScript files.
-Use Javascript or jQuery for DOM manipulation.
-Use semantic markup for HTML and CSS (adhere to best practices).
-The player should be able to clear at least one board.
-The player's score should be displayed at the end of the game.
-Responsive design.
-Each board gets more difficult.
-Persistent leaderboard using localStorage.
+ - Design logic for winning & visually display which player won.
+ - Include separate HTML / CSS / JavaScript files.
+ - Use Javascript or jQuery for DOM manipulation.
+ - Use semantic markup for HTML and CSS (adhere to best practices).
+ - The player should be able to clear at least one board.
+ - The player's score should be displayed at the end of the game.
+ - Responsive design.
+ - Each board gets more difficult.
+ - Persistent leaderboard using localStorage.
 
 ### Additional
 Add ghost follow logic where ghosts chase PacMan.
@@ -34,6 +34,7 @@ Add ghost follow logic where ghosts chase PacMan.
  
  ### Install
  This game uses vanilla javascript and ES6 Javascript modules. There is no compilation step, but you might want to install the eslint packages in order to lint the code and check for formatting errors.
+ 
  ``npm install``
  
 ___
