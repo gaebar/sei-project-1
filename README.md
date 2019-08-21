@@ -47,7 +47,7 @@ Add ghost follow logic where ghosts chase PacMan.
  
  ``python3 -m http.server``
  
- You should now be able to run the website from http://0.0.0.0:8000/
+ You should now be able to run the website from http://0.0.0.0:8000/index.html
  
 ___
 
