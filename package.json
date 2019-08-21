@@ -1,5 +1,5 @@
 {
-  "name": "sei-project-1",
+  "name": "eleven-s-game",
   "version": "1.0.0",
   "description": "Pac-man (Eleven Version)",
   "main": "app.js",
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gaebar/sei-project-1.git"
+    "url": "git+https://github.com/gaebar/eleven-s-game.git"
   },
   "author": "Gaetano Barreca",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/gaebar/sei-project-1/issues"
+    "url": "https://github.com/gaebar/eleven-s-game/issues"
   },
-  "homepage": "https://gaebar.github.io/sei-project-1/",
+  "homepage": "https://gaebar.github.io/eleven-s-game/",
   "dependencies": {
     "eslint": "^5.16.0"
   },
