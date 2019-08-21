@@ -31,6 +31,8 @@ Add ghost follow logic where ghosts chase PacMan.
  - Flexbox
  - Git
  - GitHub
+ 
+___
 
 ## Game Summary
 
@@ -54,6 +56,8 @@ Follow the pumpink seeds and collect as many Eggos Wafles as you can. Once you e
 
 ### Query String Paramenters
  - https://gaebar.github.io/sei-project-1/?screen-state=game to start the game directly
+ 
+ ___
 
 ## Process 
 
@@ -82,6 +86,8 @@ Also, I added some animated gif to replace the initial instructions:
 
 * Win Game: All the Strangers Thing characters are cheered after winning an arcade game,
 * Lose Game: Eleven ask for help.
+ 
+ ___
  
  ## Future Improvements
  #### Eleven defeat Demogorgon (Ghosts) and add more characters:
