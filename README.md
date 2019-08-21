@@ -83,14 +83,14 @@ Also, I added some animated gif to replace the initial instructions:
 * Win Game: All the Strangers Thing characters are cheered after winning an arcade game,
 * Lose Game: Eleven ask for help.
  
- ### Future Improvements
+ ## Future Improvements
  #### Eleven defeat Demogorgon (Ghosts) and add more characters:
 
  - If I had more time, I would have like to improve the game. Ghosts follow Eleven during the game and runs away from her and start to flash when she eats an Eggo. However, it is still not possible for Eleven to defeat the Ghosts.
  
 - More, make the players choose one of their favourite characters from the Stranger Things Tv Show.
 
-### Resources
+## Resources
  - [Pac-Man Arceade gameplay - Youtube](https://www.youtube.com/watch?v=uswzriFIf_k)
  - [Pac-Man -Wikipedia](https://en.wikipedia.org/wiki/Pac-Man)
 
