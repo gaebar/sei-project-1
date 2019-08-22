@@ -66,6 +66,8 @@ Follow the pumpink seeds and collect as many Eggos Wafles as you can. Once you e
 * Use the  ← ↑ → ↓ keys to move Eleven around the grids
 * To play again when you loose the three lives, click Restart Game
 
+![In Game](./images/in-game.png)
+
 ### Query String Paramenters
  - https://gaebar.github.io/sei-project-1/?screen-state=game to start the game directly
  
@@ -98,6 +100,8 @@ Also, I added some animated gif to replace the initial instructions:
 
 * Win Game: All the Strangers Thing characters are cheered after winning an arcade game,
 * Lose Game: Eleven ask for help.
+
+![Game Over](./images/game-over.png)
  
  ___
  
