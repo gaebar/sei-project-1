@@ -55,6 +55,8 @@ ___
 
 Eleven’s Game is a Stranger Things themed variation on the classic game Pac Man, a one-player game against a computer AI which intelligently hunts down the player. The Demogorgons have full follow logic and will track Elevn down or run away after Eleven eats a powerup.
 
+![Home Screen](./images/home.png)
+
 ### Instructions & Game Controls
 Control Eleven with your keyboard (arrow keys) and save the humanity from the impending invasion of the monsters from the Upside Down world.
 
