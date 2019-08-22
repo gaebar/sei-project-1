@@ -94,6 +94,8 @@ Using the array of strings as reference I was able to draw the complete grid wit
  - 'D' = Demogorgon (Ghosts)
  - 'T' = Monsters Default Target
  
+ ![Game Board](./images/game-board.png)
+ 
 To help the players enjoy their experience, I add some extra touches:
 Once the player press Start Game, Eleven voice sais "Friends don't lie!", then the Stranger Things theme song begin and the player is ready to help Eleven to save the world.
 Also, I added some animated gif to replace the initial instructions:
