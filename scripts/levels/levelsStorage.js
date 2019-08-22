@@ -12,7 +12,7 @@ export default class LevelsStorage {
   //   '+' = Eggo
   //   'U' = Upside Down World
   //   'E' = Eleven
-  //   'D' = Demagorgon
+  //   'D' = Demogorgon
   //   'T' = Monsters Default Target
 
   // Using the array of strings as reference I was able to draw 

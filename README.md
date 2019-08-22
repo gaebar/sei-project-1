@@ -91,7 +91,7 @@ Using the array of strings as reference I was able to draw the complete grid wit
  - '+' = Eggo
  - 'U' = Upside Down World
  - 'E' = Eleven
- - 'D' = Demagorgon (Ghosts)
+ - 'D' = Demogorgon (Ghosts)
  - 'T' = Monsters Default Target
  
 To help the players enjoy their experience, I add some extra touches:

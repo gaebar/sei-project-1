@@ -12,6 +12,6 @@ export default class Tile {
 '+': 'eggo',
 'u': 'upside down world',
 'E': 'eleven',
-'D': 'demagorgon',
+'D': 'demogorgon',
 't': 'monsters default target'
 */

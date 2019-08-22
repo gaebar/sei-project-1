@@ -17,7 +17,7 @@ export default class Demogorgon {
 
   }
 
-  // drawing the demagorgon status
+  // drawing the demogorgon status
 
   demogorgonTypes = {
     'normal': 'normal',
