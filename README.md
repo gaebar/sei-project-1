@@ -81,9 +81,9 @@ A project built in just over a week, which was both the first full-fledged game 
 The first task in making the Eleven's Game was to create a grid. After some attempts with the provided grid, I've decided to created the level maps grid using an Array of string - See level maps in "LevelsStorage.js". 
 
 ## Wins
-Using the array of strings as reference I was able to draw the complete grid with characters on the "game-board.CSS" file sheet. Doing so the monsters and Eleven are free to move around the gameboard and not allowed to cross the walls.
+Using the array of strings as reference I was able to draw the complete grid with characters on the "game-board.CSS" file sheet. Doing so the monsters and Eleven are free to move around the game board and not allowed to cross the walls.
 
- Map Tiles Types - Correspondence between map codes and DOM classes:
+Map Tiles Types - Correspondence between map codes and DOM classes:
 
 ```javascript
 tileTypes = {
