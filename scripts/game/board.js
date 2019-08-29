@@ -219,7 +219,6 @@ export default class Board {
   }
 
   updateTargets() {
-
     this.targets.forEach((target) => {
       if (Math.random() > 0.9) {
         target[0] = Math.floor(Math.random() * this.maxRow)
@@ -240,10 +239,9 @@ export default class Board {
       if (this.isWall(nextPosition))
         return
 
-      // reduce the distance from target to discourage the demogorgon from changing position
+      // reduce the distance from target to discourage the demogorgon from changing direction
       if (demogorgon.direction === this.directions[key])
         distanceFromTarget = distanceFromTarget * 0.9
-
 
       possibleNextPositions.push({
         nextPosition: nextPosition,
