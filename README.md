@@ -76,11 +76,11 @@ Follow the pumpkin seeds and collect as many Eggo's Waffles as you can. Once you
 
 A project built in just over a week, which was both the first full-fledged game I had built and my first project using Vanilla JavaScript, having only been studying it for two weeks. 
 
-### Creating Grids and Ghosts and Egos Placement
+### Creating Grids and Ghosts and Eggos Placement
 
 The first task in making the Eleven's Game was to create a grid. After some attempts with the provided grid, I've decided to created the level maps grid using an Array of string - See level maps in "LevelsStorage.js". 
 
-### Wins
+## Wins
 Using the array of strings as reference I was able to draw the complete grid with characters on the "game-board.CSS" file sheet. Doing so the monsters and Eleven are free to move around the gameboard and not allowed to cross the walls.
 
  Map Tiles Types - Correspondence between map codes and DOM classes:
@@ -98,7 +98,7 @@ tileTypes = {
 }
  ```
 
- DOM Gameboard
+ 
  ```javascript
    level1 = [
     '■■■■■■■■■■■■■■■■■■■■■■■■■■■■',
@@ -267,16 +267,10 @@ calculateDistanceFromTarget(position1, position2) {
  ___
  ## Key Learnings
 
-Eleven's Game was the first project that I've to planning a complex code structure and while working I've realized how important it was to use several folder to make a DRY and clear code.
+Eleven's Game was the first project where I had to start planning how to make a non-trivial code structure. I have realized how important is to employ the correct code structure, like DRY techniques and clean code patterns.
 
- Working on this project I found out that I needed more other key skills then just know how to code. I had a thought about my Problem Solving skills and agreed with some article on the web that includes:
+ Working at this project, I realized that I needed to use many other key skills beyond just coding, in order to make the project successful. Skills such as creativity, Researching, scoping, emotional intelligence, decision making.
 
-- Creativity.
-- Researching Skills.
-- Team Working. 
-- Emotional Intelligence. 
-- Risk Management. 
-- Decision Making.
  ___
  
  ## Future Improvements
