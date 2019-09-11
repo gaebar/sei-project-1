@@ -152,7 +152,7 @@ ___
 ### Challenges
 I initially wanted to use Canvas API to display the game animations, as I wanted continues fluid movements and transitions, however the point of making this game was how to use DOM manipulation methods for a more complex project.
 
-Later on in my studies, I realized that using a library  for DOM manipulation and state management would been very useful. I had to code these these elements in using vanilla JavaScript which was challenging, but a great learning opportunity. If I had to build the project again, I would have used React and Redux to make it easier to handle the application state.
+Later on in my studies, I realized that using a library  for DOM manipulation and state management would been very useful. I had to code these elements in using vanilla JavaScript which was challenging, but a great learning opportunity. If I had to build the project again, I would have used React and Redux to make it easier to handle the application state.
 
 In this project the game state is held in the [Board](https://github.com/gaebar/eleven-s-game/blob/master/scripts/game/board.js#L8) class.
 
